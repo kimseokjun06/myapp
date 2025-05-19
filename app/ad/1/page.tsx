@@ -14,8 +14,7 @@ export default function AdPage() {
   const [status, setStatus] = useState<'correct' | 'wrong' | 'duplicate' | null>(null);
 
   const normalizePhone = (input: string) => input.replace(/\D/g, '');
-
-  const alreadySubmittedPhones = new Set<string>();
+  const alreadySubmittedPhones = new Set<string>(); // 임시 구조, 새로고침 시 초기화
 
   const handleSubmit = () => {
     const normalized = normalizePhone(phone);
@@ -42,7 +41,6 @@ export default function AdPage() {
         1번 광고: G-DRAGON
       </h1>
 
-      {/* 광고 영역: showQuiz가 false일 때만 보여줌 */}
       {!showQuiz && (
         <>
           <img
@@ -52,7 +50,7 @@ export default function AdPage() {
           />
 
           <p style={{ textAlign: 'center', marginBottom: '2rem', lineHeight: '1.6' }}>
-            지드래곤(G-DRAGON), 본명 <strong>권지용</strong>, 대한민국의 가수, 래퍼, 작곡가입니다.<br />
+            지드래곤(G-DRAGON), 본명 권지용, 대한민국의 가수, 래퍼, 작곡가입니다.<br />
             그는 빅뱅(BIGBANG)의 리더로 수많은 히트곡을 만들었으며,<br />
             예술성과 패션 감각까지 겸비한 아티스트로 세계적으로 주목받고 있습니다.
           </p>
@@ -95,7 +93,6 @@ export default function AdPage() {
         </>
       )}
 
-      {/* 퀴즈 영역 */}
       {showQuiz && !submitted && (
         <div style={{ marginTop: '2rem' }}>
           <strong>Q. 지드래곤의 본명은 무엇인가요?</strong>
@@ -131,7 +128,6 @@ export default function AdPage() {
         </div>
       )}
 
-      {/* 응모 결과 */}
       {submitted && (
         <div style={{
           marginTop: '2rem',
