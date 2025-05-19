@@ -14,7 +14,7 @@ export default function AdPage() {
   const [status, setStatus] = useState<'correct' | 'wrong' | 'duplicate' | null>(null);
 
   const normalizePhone = (input: string) => input.replace(/\D/g, '');
-  const alreadySubmittedPhones = new Set<string>(); // 임시 구조, 새로고침 시 초기화
+  const alreadySubmittedPhones = new Set<string>(); // 새로고침 시 초기화됨
 
   const handleSubmit = () => {
     const normalized = normalizePhone(phone);
@@ -41,11 +41,12 @@ export default function AdPage() {
         1번 광고: G-DRAGON
       </h1>
 
+      {/* 광고 설명은 퀴즈 들어가기 전까지만 보여줌 */}
       {!showQuiz && (
         <>
           <img
-            src="https://i.pinimg.com/736x/98/4f/fb/984ffb3fa118c70f98498de7979a3706.jpg"
-            alt="G-Dragon Instagram"
+            src="/images/gdragon.jpg"
+            alt="지드래곤"
             style={{ width: '100%', maxWidth: '400px', margin: '0 auto', display: 'block', marginBottom: '1rem' }}
           />
 
@@ -93,6 +94,7 @@ export default function AdPage() {
         </>
       )}
 
+      {/* 퀴즈 */}
       {showQuiz && !submitted && (
         <div style={{ marginTop: '2rem' }}>
           <strong>Q. 지드래곤의 본명은 무엇인가요?</strong>
@@ -128,6 +130,7 @@ export default function AdPage() {
         </div>
       )}
 
+      {/* 결과 */}
       {submitted && (
         <div style={{
           marginTop: '2rem',
