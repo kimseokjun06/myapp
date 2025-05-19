@@ -42,61 +42,64 @@ export default function AdPage() {
         1번 광고: G-DRAGON
       </h1>
 
-      <img
-        src="https://i.pinimg.com/736x/98/4f/fb/984ffb3fa118c70f98498de7979a3706.jpg"
-        alt="G-Dragon Instagram"
-        style={{ width: '100%', maxWidth: '400px', margin: '0 auto', display: 'block', marginBottom: '1rem' }}
-      />
-
-      <p style={{ textAlign: 'center', marginBottom: '2rem', lineHeight: '1.6' }}>
-        지드래곤(G-DRAGON)은 대한민국의 가수, 래퍼, 작곡가로<br />
-        빅뱅(BIGBANG)의 리더이며, 독보적인 패션 아이콘입니다.<br />
-        그는 ‘하트브레이커’, ‘크레용’, ‘무제’ 등 수많은 히트곡을 만들었고<br />
-        국내외에서 예술성과 대중성을 동시에 인정받는 아티스트입니다.
-      </p>
-
-      <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-        <a
-          href="https://www.instagram.com/xxxibgdrgn?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: 'inline-block',
-            padding: '0.6rem 1.2rem',
-            backgroundColor: '#E1306C',
-            color: '#fff',
-            borderRadius: '5px',
-            textDecoration: 'none',
-            fontWeight: 'bold'
-          }}
-        >
-          👉 지드래곤 인스타그램 보기
-        </a>
-      </div>
-
+      {/* 광고 영역: showQuiz가 false일 때만 보여줌 */}
       {!showQuiz && (
-        <div style={{ textAlign: 'center' }}>
-          <button
-            onClick={() => setShowQuiz(true)}
-            style={{
-              padding: '0.7rem 1.5rem',
-              fontSize: '16px',
-              backgroundColor: '#111',
-              color: '#fff',
-              border: 'none',
-              borderRadius: '5px',
-              cursor: 'pointer'
-            }}
-          >
-            문제 풀고 응모하기
-          </button>
-        </div>
+        <>
+          <img
+            src="https://i.pinimg.com/736x/98/4f/fb/984ffb3fa118c70f98498de7979a3706.jpg"
+            alt="G-Dragon Instagram"
+            style={{ width: '100%', maxWidth: '400px', margin: '0 auto', display: 'block', marginBottom: '1rem' }}
+          />
+
+          <p style={{ textAlign: 'center', marginBottom: '2rem', lineHeight: '1.6' }}>
+            지드래곤(G-DRAGON), 본명 <strong>권지용</strong>, 대한민국의 가수, 래퍼, 작곡가입니다.<br />
+            그는 빅뱅(BIGBANG)의 리더로 수많은 히트곡을 만들었으며,<br />
+            예술성과 패션 감각까지 겸비한 아티스트로 세계적으로 주목받고 있습니다.
+          </p>
+
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <a
+              href="https://www.instagram.com/xxxibgdrgn?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-block',
+                padding: '0.6rem 1.2rem',
+                backgroundColor: '#E1306C',
+                color: '#fff',
+                borderRadius: '5px',
+                textDecoration: 'none',
+                fontWeight: 'bold'
+              }}
+            >
+              👉 지드래곤 인스타그램 보기
+            </a>
+          </div>
+
+          <div style={{ textAlign: 'center' }}>
+            <button
+              onClick={() => setShowQuiz(true)}
+              style={{
+                padding: '0.7rem 1.5rem',
+                fontSize: '16px',
+                backgroundColor: '#111',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '5px',
+                cursor: 'pointer'
+              }}
+            >
+              문제 풀고 응모하기
+            </button>
+          </div>
+        </>
       )}
 
+      {/* 퀴즈 영역 */}
       {showQuiz && !submitted && (
         <div style={{ marginTop: '2rem' }}>
           <strong>Q. 지드래곤의 본명은 무엇인가요?</strong>
-          <div style={{ marginBottom: '1rem' }}>
+          <div style={{ marginBottom: '1rem', marginTop: '0.5rem' }}>
             <label><input type="radio" name="quiz" value="1" onChange={(e) => setAnswer(e.target.value)} /> ① 권지홍</label><br />
             <label><input type="radio" name="quiz" value="2" onChange={(e) => setAnswer(e.target.value)} /> ② 권지용</label><br />
             <label><input type="radio" name="quiz" value="3" onChange={(e) => setAnswer(e.target.value)} /> ③ 권재용</label><br />
@@ -128,6 +131,7 @@ export default function AdPage() {
         </div>
       )}
 
+      {/* 응모 결과 */}
       {submitted && (
         <div style={{
           marginTop: '2rem',
